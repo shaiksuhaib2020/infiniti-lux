@@ -1,0 +1,149 @@
+.navbarWrapper {
+  /* Using standard fixed container for the wrapper */
+  position: fixed;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  pointer-events: none; /* Let clicks pass through the wrapper to elements below */
+  display: flex;
+  justify-content: center;
+}
+
+.navbarWrapper > * {
+  pointer-events: auto; /* Re-enable clicks for children */
+}
+
+.logoBlock {
+  position: absolute;
+  left: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.logoText {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--color-white);
+  line-height: 1;
+}
+
+.logoSub {
+  font-family: var(--font-body);
+  font-size: 9px;
+  color: var(--color-gold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.desktopDropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  /* The PillNav container centers itself. The dropdown needs to sit beneath the 'Travel' pill. 
+     Since 'Travel' is the second item, we can approximately position this, 
+     or just center it as well. A centered dropdown under the nav is clean. */
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  animation: dropdownFade 0.2s ease forwards;
+}
+
+@keyframes dropdownFade {
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.dropdownLink {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-ink);
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.dropdownLink::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background-color: var(--color-gold);
+  transform: translateX(-100%);
+  transition: transform 0.2s ease;
+}
+
+.dropdownLink:hover {
+  background: var(--color-ice);
+}
+
+.dropdownLink:hover::before {
+  transform: translateX(0);
+}
+
+.whatsappBtn {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--color-whatsapp);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: var(--radius-pill);
+  transition: box-shadow 0.3s ease;
+}
+
+.whatsappScrolled {
+  box-shadow: 0 2px 12px rgba(37, 211, 102, 0.35);
+}
+
+.mobileSubMenu {
+  display: flex;
+  flex-direction: column;
+  padding-left: 16px;
+  margin-top: 4px;
+  margin-bottom: 8px;
+  border-left: 1px solid var(--color-border-dark);
+}
+
+.mobileSubLink {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-white-75);
+  padding: 8px 16px;
+  text-decoration: none;
+  border-left: 3px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.mobileSubLink:hover {
+  color: var(--color-gold);
+  border-left-color: var(--color-gold);
+  background: rgba(197, 151, 58, 0.1);
+}
+
+@media (max-width: 768px) {
+  .desktopDropdown, .whatsappBtn, .logoSub {
+    display: none; /* Handled inside PillNav for mobile */
+  }
+}

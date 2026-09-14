@@ -1,0 +1,107 @@
+.section {
+  position: relative;
+  padding: 120px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://source.unsplash.com/featured/?aerial,travel,beach');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: 1;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.content {
+  position: relative;
+  z-index: 3;
+  max-width: 800px;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: 52px;
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 24px;
+}
+
+.subtext {
+  font-family: var(--font-body);
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.btnGroup {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.primaryBtn, .whatsappBtn {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 16px 32px;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.primaryBtn {
+  background: var(--color-gold);
+  color: #fff;
+}
+
+.primaryBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 85, 255, 0.3);
+}
+
+.whatsappBtn {
+  background: #25D366;
+  color: #fff;
+}
+
+.whatsappBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 100px 24px;
+  }
+  
+  .heading {
+    font-size: 40px;
+  }
+  
+  .btnGroup {
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+  }
+  
+  .primaryBtn, .whatsappBtn {
+    width: 100%;
+  }
+}

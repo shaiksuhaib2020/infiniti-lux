@@ -1,0 +1,179 @@
+.heroSection {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 10%;
+  overflow: hidden;
+}
+
+.videoWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.heroVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top right, rgba(7, 17, 28, 0.7) 0%, rgba(7, 17, 28, 0.3) 100%);
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  max-width: 800px;
+}
+
+.headline {
+  font-size: var(--text-hero);
+  color: var(--color-white);
+  margin-bottom: var(--space-4);
+  font-weight: 300;
+}
+
+.subtext {
+  font-size: var(--text-subheading);
+  color: var(--color-white-95);
+  margin-bottom: var(--space-2);
+}
+
+.supportLine {
+  font-size: 17px;
+  color: var(--color-white-75);
+  margin-bottom: var(--space-7);
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.btnRow {
+  display: flex;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.primaryBtn, .secondaryBtn, .whatsappBtn {
+  font-size: var(--text-body-sm);
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: var(--radius-button);
+  transition: var(--transition-base);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.primaryBtn {
+  background: var(--color-gold);
+  color: var(--color-white);
+}
+
+.primaryBtn:hover {
+  transform: translateY(-2px);
+  background: var(--color-gold-light);
+}
+
+.secondaryBtn {
+  background: transparent;
+  color: var(--color-white);
+  border: 1px solid var(--color-white);
+}
+
+.secondaryBtn:hover {
+  background: var(--color-white-12);
+}
+
+.whatsappBtn {
+  background: var(--color-whatsapp);
+  color: var(--color-white);
+}
+
+.whatsappBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.textLink {
+  font-size: 14px;
+  color: var(--color-white-75);
+  text-decoration: none;
+  width: fit-content;
+  transition: var(--transition-base);
+}
+
+.textLink:hover {
+  color: var(--color-gold);
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 48px;
+  background-color: var(--color-white-50);
+  position: relative;
+  overflow: hidden;
+}
+
+.scrollDot {
+  width: 3px;
+  height: 8px;
+  background-color: var(--color-white);
+  border-radius: 4px;
+  position: absolute;
+  top: 0;
+  left: -1px;
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    padding-left: 0;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .content {
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .headline {
+    font-size: 48px;
+  }
+  
+  .btnRow {
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+  }
+  
+  .primaryBtn, .secondaryBtn, .whatsappBtn {
+    width: 100%;
+  }
+}
