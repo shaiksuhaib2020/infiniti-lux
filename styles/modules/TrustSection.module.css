@@ -1,6 +1,6 @@
 .section {
   padding: 120px var(--space-5);
-  background-color: var(--color-white);
+  background-color: var(--color-page);
   max-width: var(--page-max-width);
   margin: 0 auto;
 }

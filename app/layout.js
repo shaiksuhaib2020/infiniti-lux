@@ -1,4 +1,5 @@
 import '@/styles/globals.css';
+import '@/components/layout/PillNav.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import WhatsAppFloat from '@/components/layout/WhatsAppFloat';

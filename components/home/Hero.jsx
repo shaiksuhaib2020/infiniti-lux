@@ -1,40 +1,67 @@
 'use client';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import styles from '@/styles/modules/Hero.module.css';
 
+const words = ["Borders", "Expectations", "Imaginations", "Boundaries"];
+
 export default function Hero() {
-  const headlineRef = useRef(null);
-  const subtextRef = useRef(null);
-  const supportRef = useRef(null);
-  const btnRowRef = useRef(null);
+  const sectionRef = useRef(null);
+  const contentRef = useRef(null);
+  const videoWrapperRef = useRef(null);
   const scrollIndRef = useRef(null);
+  const wordRef = useRef(null);
+  
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
 
-    const tl = gsap.timeline();
+    let currentIndex = 0;
+    
+    const transitionDuration = 0.45; 
+    const pauseDuration = 2000; 
 
-    tl.fromTo(headlineRef.current, 
-      { opacity: 0, y: 20 }, 
-      { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }
-    )
-    .fromTo(subtextRef.current, 
-      { opacity: 0, y: 20 }, 
-      { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, 
-      '-=0.65'
-    )
-    .fromTo(supportRef.current, 
-      { opacity: 0, y: 20 }, 
-      { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, 
-      '-=0.55'
-    )
-    .fromTo(btnRowRef.current, 
-      { opacity: 0, y: 20 }, 
-      { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, 
-      '-=0.4'
-    );
+    const interval = setInterval(() => {
+      const nextIndex = (currentIndex + 1) % words.length;
+      
+      gsap.to(wordRef.current, {
+        y: -15,
+        opacity: 0,
+        duration: transitionDuration,
+        ease: 'power2.inOut',
+        onComplete: () => {
+          currentIndex = nextIndex;
+          setIndex(currentIndex);
+          
+          gsap.set(wordRef.current, { y: 15 });
+          
+          gsap.to(wordRef.current, {
+            y: 0,
+            opacity: 1,
+            duration: transitionDuration,
+            ease: 'power2.out'
+          });
+        }
+      });
+    }, pauseDuration + (transitionDuration * 1000 * 2));
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!prefersReducedMotion) {
+      gsap.fromTo(contentRef.current.children, 
+        { opacity: 0, y: 30 }, 
+        { opacity: 1, y: 0, duration: 1, stagger: 0.15, ease: 'power3.out' }
+      );
+    }
 
     gsap.to(scrollIndRef.current, {
       y: 10,
@@ -45,11 +72,28 @@ export default function Hero() {
       ease: 'power1.inOut'
     });
 
+    if (!prefersReducedMotion) {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        }
+      });
+
+      tl.to(contentRef.current, { y: -100, opacity: 0, duration: 1 }, 0)
+        .to(videoWrapperRef.current, { scale: 1.05, y: 50, duration: 1 }, 0);
+    }
+
+    return () => {
+      ScrollTrigger.getAll().forEach(t => t.kill());
+    };
   }, []);
 
   return (
-    <section className={styles.heroSection}>
-      <div className={styles.videoWrapper}>
+    <section ref={sectionRef} className={styles.heroSection}>
+      <div ref={videoWrapperRef} className={styles.videoWrapper}>
         <video 
           autoPlay 
           muted 
@@ -57,47 +101,55 @@ export default function Hero() {
           playsInline 
           className={styles.heroVideo}
         >
-          <source src="/assets/video/Hero_vid.webm" type="video/webm" />
+          <source src="/assets/video/hero_vid.webm" type="video/webm" />
         </video>
         <div className={styles.overlay}></div>
       </div>
 
-      <div className={styles.content}>
-        <h1 ref={headlineRef} className={styles.headline}>Travel Beyond Boundaries</h1>
-        
-        <p ref={subtextRef} className={styles.subtext}>Explore the world with confidence.</p>
-        
-        <p ref={supportRef} className={styles.supportLine}>
-          Flights, holidays, visa services and more — handled personally.
-        </p>
+      <div className={styles.cloudLayer} style={{ backgroundImage: 'url(https://assets.codepen.io/1462889/clouds.png)', opacity: 0.4, animationDuration: '60s' }}></div>
+      <div className={styles.cloudLayer} style={{ backgroundImage: 'url(https://assets.codepen.io/1462889/clouds.png)', opacity: 0.3, animationDuration: '40s', animationDirection: 'reverse', transform: 'scale(1.2)' }}></div>
 
-        <div ref={btnRowRef} className={styles.buttonContainer}>
-          <div className={styles.btnRow}>
-            <Link href="/contact" className={styles.primaryBtn}>
-              Plan My Trip
-            </Link>
-            <Link href="/travel/holidays" className={styles.secondaryBtn}>
-              Explore Holidays
-            </Link>
-            <a 
-              href="https://wa.me/971582109797?text=Hi%20Infiniti%20Luxe%2C%20I%20would%20like%20help%20planning%20my%20trip."
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.whatsappBtn}
-            >
-              WhatsApp Us
-            </a>
-          </div>
+      <div className={styles.contentContainer}>
+        <div ref={contentRef} className={styles.content}>
+          <div className={styles.eyebrow}>EXPLORE · EXPERIENCE · ESCAPE</div>
           
-          <Link href="/contact" className={styles.textLink}>
-            Speak to a Travel Expert &rarr;
-          </Link>
+          <h1 className={styles.headline}>
+            Travel Beyond <span className={styles.pillWrapper}>
+              <span ref={wordRef} className={styles.animatedWord}>
+                {words[index]}
+              </span>
+            </span>.
+          </h1>
+          
+          <p className={styles.subtext}>Explore the world with confidence.</p>
+          
+          <p className={styles.serviceLine}>
+            Flights · Holidays · Tours · Visas · Hotels · Experiences
+          </p>
+
+          <div className={styles.buttonContainer}>
+            <div className={styles.btnRow}>
+              <Link href="/contact" className={styles.primaryBtn}>
+                Plan My Trip
+              </Link>
+              <Link href="/travel/holidays" className={styles.secondaryBtn}>
+                Explore Holidays
+              </Link>
+            </div>
+            
+            <Link href="/contact" className={styles.textLink}>
+              Speak to a Travel Expert &rarr;
+            </Link>
+          </div>
         </div>
       </div>
 
-      <div ref={scrollIndRef} className={styles.scrollIndicator}>
-        <div className={styles.scrollLine}>
-          <div className={styles.scrollDot}></div>
+      <div className={styles.scrollIndicatorWrapper}>
+        <div className={styles.scrollText}>SCROLL TO EXPLORE</div>
+        <div ref={scrollIndRef} className={styles.scrollIndicator}>
+          <div className={styles.scrollLine}>
+            <div className={styles.scrollDot}></div>
+          </div>
         </div>
       </div>
     </section>

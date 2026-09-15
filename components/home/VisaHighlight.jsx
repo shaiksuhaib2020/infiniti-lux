@@ -15,20 +15,44 @@ export default function VisaHighlight() {
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    gsap.fromTo(sectionRef.current.children,
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 80%'
+    const ctx = gsap.context(() => {
+      // Animate left content (staggered fade up)
+      gsap.fromTo(sectionRef.current.children,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 80%'
+          }
         }
+      );
+
+      // Animate the image card (slide in from right)
+      const imageCard = document.querySelector(`.${styles.imageCard}`);
+      if (imageCard) {
+        gsap.fromTo(imageCard,
+          { opacity: 0, x: 60, scale: 0.95 },
+          {
+            opacity: 1,
+            x: 0,
+            scale: 1,
+            duration: 1,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: imageCard,
+              start: 'top 85%'
+            }
+          }
+        );
       }
-    );
+    });
+
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -36,6 +60,7 @@ export default function VisaHighlight() {
       <div className={styles.container}>
         <div ref={sectionRef} className={styles.content}>
           <div className={styles.label}>Visa Services</div>
+          <div className={styles.accentLine}></div>
           
           <h2 className={styles.heading}>Your Journey Starts With the Right Preparation.</h2>
           
@@ -65,7 +90,17 @@ export default function VisaHighlight() {
         </div>
         
         <div className={styles.visualColumn}>
-          {/* Decorative element could go here */}
+          <div className={styles.imageCard}>
+            <img
+              src="/assets/visa/visa_1.webp"
+              alt="Professional visa application assistance by Infiniti Luxe"
+              className={styles.visaImage}
+              loading="lazy"
+            />
+            <div className={styles.imageOverlay}>
+              <span className={styles.overlayBadge}>Expert Visa Guidance</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>

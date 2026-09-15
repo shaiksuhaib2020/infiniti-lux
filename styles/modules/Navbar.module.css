@@ -27,18 +27,18 @@
 .logoText {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: 18px;
+  font-size: 32px;
   color: var(--color-white);
   line-height: 1;
 }
 
 .logoSub {
   font-family: var(--font-body);
-  font-size: 9px;
+  font-size: 10px;
   color: var(--color-gold);
-  letter-spacing: 0.12em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  margin-top: 4px;
+  margin-top: 6px;
 }
 
 .desktopDropdown {

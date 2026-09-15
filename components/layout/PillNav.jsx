@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import './PillNav.css';
 
 export default function PillNav({
   items = [],
@@ -60,7 +59,7 @@ export default function PillNav({
         transition={{ duration: 0.8, ease: ease }}
       >
         {items.map((item, i) => {
-          const isActive = item.href !== '#' && pathname === item.href;
+          const isActive = item.isActive ? item.isActive(pathname) : (item.href !== '#' && pathname === item.href);
           
           return (
             <div 
@@ -81,9 +80,7 @@ export default function PillNav({
                     {item.label}
                   </a>
                 ) : (
-                  <Link href={item.href} className={`pill ${isActive ? 'is-active' : ''}`} onClick={(e) => {
-                    if (item.label === 'Travel') e.preventDefault(); // Handled by hover mostly
-                  }}>
+                  <Link href={item.href} className={`pill ${isActive ? 'is-active' : ''}`}>
                     {item.label}
                   </Link>
                 )}
@@ -104,9 +101,7 @@ export default function PillNav({
                             {item.label}
                           </a>
                         ) : (
-                          <Link href={item.href} className="pill-hover-text" onClick={(e) => {
-                            if (item.label === 'Travel') e.preventDefault();
-                          }}>
+                          <Link href={item.href} className="pill-hover-text">
                             {item.label}
                           </Link>
                         )}
@@ -138,7 +133,7 @@ export default function PillNav({
             transition={{ duration: 0.2 }}
           >
             {items.map((item) => {
-              const isActive = item.href !== '#' && pathname === item.href;
+              const isActive = item.isActive ? item.isActive(pathname) : (item.href !== '#' && pathname === item.href);
               return (
                 <div key={item.label}>
                   {isExternal(item.href) ? (

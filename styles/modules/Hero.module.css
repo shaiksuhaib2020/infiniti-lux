@@ -1,12 +1,12 @@
 .heroSection {
   position: relative;
   height: 100vh;
+  min-height: 800px;
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  padding-left: 10%;
   overflow: hidden;
+  background-color: var(--color-abyss);
 }
 
 .videoWrapper {
@@ -15,8 +15,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
-  pointer-events: none;
+  z-index: 1;
+  transform-origin: center;
 }
 
 .heroVideo {
@@ -28,32 +28,97 @@
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top right, rgba(7, 17, 28, 0.7) 0%, rgba(7, 17, 28, 0.3) 100%);
+  /* Very subtle cinematic gradient to preserve detail but ensure readability */
+  background: linear-gradient(to right, rgba(7, 17, 28, 0.75) 0%, rgba(7, 17, 28, 0.4) 50%, rgba(7, 17, 28, 0.1) 100%);
+}
+
+.cloudLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  z-index: 2;
+  background-repeat: repeat-x;
+  background-size: cover;
+  background-position: center;
+  pointer-events: none;
+  animation: drift linear infinite;
+}
+
+@keyframes drift {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.contentContainer {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-5);
+  display: flex;
+  justify-content: flex-start;
 }
 
 .content {
-  position: relative;
-  z-index: 10;
-  max-width: 800px;
+  width: 100%;
+  max-width: 650px;
+  display: flex;
+  flex-direction: column;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--color-gold);
+  margin-bottom: var(--space-4);
+  font-weight: 600;
 }
 
 .headline {
-  font-size: var(--text-hero);
+  font-size: clamp(48px, 6vw, 84px);
   color: var(--color-white);
-  margin-bottom: var(--space-4);
-  font-weight: 300;
+  line-height: 1.1;
+  font-weight: 400;
+  margin-bottom: var(--space-5);
+  letter-spacing: -0.02em;
+}
+
+.pillWrapper {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(197, 151, 58, 0.15); /* Subtle gold background */
+  padding: 4px 24px;
+  border-radius: 9999px;
+  border: 1px solid rgba(197, 151, 58, 0.3);
+  width: 5.8em; /* Fit 'Imaginations' precisely without shifting */
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.animatedWord {
+  color: var(--color-gold);
+  display: inline-block;
+  line-height: 1;
+  padding-bottom: 4px; /* Adjust for font baseline */
 }
 
 .subtext {
-  font-size: var(--text-subheading);
+  font-size: 18px;
   color: var(--color-white-95);
   margin-bottom: var(--space-2);
 }
 
-.supportLine {
-  font-size: 17px;
+.serviceLine {
+  font-size: 15px;
   color: var(--color-white-75);
   margin-bottom: var(--space-7);
+  letter-spacing: 0.02em;
 }
 
 .buttonContainer {
@@ -64,16 +129,16 @@
 
 .btnRow {
   display: flex;
-  gap: var(--space-6);
+  gap: var(--space-4);
   flex-wrap: wrap;
 }
 
-.primaryBtn, .secondaryBtn, .whatsappBtn {
+.primaryBtn, .secondaryBtn {
   font-size: var(--text-body-sm);
   font-weight: 600;
   padding: 14px 28px;
-  border-radius: var(--radius-button);
-  transition: var(--transition-base);
+  border-radius: 8px; /* Slightly rounded, not pill */
+  transition: transform var(--transition-base), background var(--transition-base);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -90,23 +155,15 @@
 }
 
 .secondaryBtn {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.1);
   color: var(--color-white);
-  border: 1px solid var(--color-white);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
 }
 
 .secondaryBtn:hover {
-  background: var(--color-white-12);
-}
-
-.whatsappBtn {
-  background: var(--color-whatsapp);
-  color: var(--color-white);
-}
-
-.whatsappBtn:hover {
+  background: rgba(255, 255, 255, 0.15);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
 }
 
 .textLink {
@@ -114,27 +171,36 @@
   color: var(--color-white-75);
   text-decoration: none;
   width: fit-content;
-  transition: var(--transition-base);
+  transition: color var(--transition-base);
 }
 
 .textLink:hover {
   color: var(--color-gold);
 }
 
-.scrollIndicator {
+.scrollIndicatorWrapper {
   position: absolute;
   bottom: 32px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  gap: 8px;
+  z-index: 10;
+}
+
+.scrollText {
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--color-white-50);
 }
 
 .scrollLine {
   width: 1px;
-  height: 48px;
-  background-color: var(--color-white-50);
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.15);
   position: relative;
   overflow: hidden;
 }
@@ -151,29 +217,34 @@
 
 @media (max-width: 768px) {
   .heroSection {
-    padding-left: 0;
-    justify-content: center;
-    text-align: center;
+    align-items: flex-end;
+    padding-bottom: 120px;
+    min-height: 100svh;
   }
   
   .content {
-    padding: 0 24px;
-    display: flex;
-    flex-direction: column;
     align-items: center;
+    text-align: center;
   }
-  
-  .headline {
-    font-size: 48px;
+
+  .pillWrapper {
+    min-width: 220px;
   }
-  
+
   .btnRow {
     flex-direction: column;
-    gap: 16px;
+    width: 100%;
+  }
+
+  .primaryBtn, .secondaryBtn {
     width: 100%;
   }
   
-  .primaryBtn, .secondaryBtn, .whatsappBtn {
-    width: 100%;
+  .overlay {
+    background: linear-gradient(to top, rgba(7, 17, 28, 0.9) 0%, rgba(7, 17, 28, 0.4) 60%, rgba(7, 17, 28, 0.1) 100%);
+  }
+  
+  .cloudLayer {
+    display: none; /* Reduce expensive animation on mobile */
   }
 }

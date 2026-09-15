@@ -1,0 +1,440 @@
+/* SECTION 1: HERO */
+.heroSection {
+  position: relative;
+  height: 65vh;
+  min-height: 500px;
+  width: 100%;
+  background-color: var(--color-abyss);
+  background-image: url('data:image/svg+xml;utf8,<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="1" fill="white" fill-opacity="0.03" /></svg>');
+  background-repeat: repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.heroContainer {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.heroLabel {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--color-gold);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  margin-bottom: 24px;
+}
+
+.heroHeadline {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 68px);
+  color: var(--color-white);
+  font-weight: 300;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  max-width: 760px;
+}
+
+.heroSupporting {
+  font-family: var(--font-body);
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.65;
+  max-width: 540px;
+  margin-top: 20px;
+}
+
+/* SECTION 2: MANIFESTO */
+.manifestoSection {
+  background-color: var(--color-page);
+  padding: 120px 0;
+}
+
+.manifestoContainer {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 var(--space-5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.manifestoOpener {
+  font-family: var(--font-display);
+  font-size: 40px;
+  color: var(--color-ink);
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 48px;
+}
+
+.manifestoPara {
+  font-family: var(--font-body);
+  font-size: 18px;
+  color: var(--color-slate);
+  line-height: 1.85;
+  margin-bottom: 32px;
+}
+
+.manifestoPara:last-of-type {
+  margin-bottom: 0;
+}
+
+.manifestoClosing {
+  font-family: var(--font-display);
+  font-size: 32px;
+  color: var(--color-ink);
+  font-weight: 400;
+  font-style: italic;
+  margin-top: 48px;
+}
+
+/* SECTION 3: WHAT WE DO */
+.servicesSection {
+  background-color: var(--color-ice);
+  padding: 96px 0;
+}
+
+.servicesHeader {
+  max-width: var(--page-max-width);
+  margin: 0 auto 40px auto;
+  padding: 0 var(--space-5);
+}
+
+.servicesHeading {
+  font-family: var(--font-display);
+  font-size: 44px;
+  color: var(--color-ink);
+  font-weight: 400;
+}
+
+.servicesSubtext {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--color-stone);
+  margin-top: 12px;
+}
+
+.servicesRowContainer {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.servicesRowContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.servicesRow {
+  display: flex;
+  padding: 0 var(--space-5);
+  gap: 32px;
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+}
+
+.serviceItem {
+  flex: 0 0 160px;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.serviceBar {
+  height: 2px;
+  width: 32px;
+  background-color: var(--color-gold);
+  margin-bottom: 16px;
+  transition: width 0.3s ease;
+}
+
+.serviceItem:hover .serviceBar {
+  width: 48px;
+}
+
+.serviceName {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--color-ink);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.serviceDesc {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-stone);
+  margin-top: 6px;
+}
+
+/* SECTION 4: VALUES */
+.valuesSection {
+  background-color: var(--color-page);
+  padding: 96px 0;
+}
+
+.valuesContainer {
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-5);
+}
+
+.valuesHeader {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.valuesHeading {
+  font-family: var(--font-display);
+  font-size: 44px;
+  color: var(--color-ink);
+  font-weight: 400;
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.valueItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.valueName {
+  font-family: var(--font-display);
+  font-size: 28px;
+  color: var(--color-ink);
+  font-weight: 400;
+}
+
+.valueBody {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-slate);
+  line-height: 1.75;
+  max-width: 300px;
+  margin-top: 40px; /* intentional space */
+}
+
+@media (max-width: 900px) {
+  .valuesGrid {
+    grid-template-columns: 1fr;
+    gap: 64px;
+  }
+}
+
+/* SECTION 5: DUBAI */
+.dubaiSection {
+  background-color: var(--color-abyss);
+  padding: 96px 0;
+}
+
+.dubaiContainer {
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-5);
+  display: flex;
+  gap: 5%;
+}
+
+.dubaiLeft, .dubaiRight {
+  flex: 1;
+}
+
+.dubaiLabel {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--color-gold);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+}
+
+.dubaiHeading {
+  font-family: var(--font-display);
+  font-size: 44px;
+  color: var(--color-white);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.dubaiPara {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.75;
+  max-width: 440px;
+  margin-top: 20px;
+}
+
+.contactList {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contactRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.contactIcon {
+  color: var(--color-gold);
+}
+
+.contactText {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.85);
+  transition: color 0.2s ease;
+}
+
+a.contactRow:hover .contactText {
+  color: var(--color-gold);
+}
+
+.statsCard {
+  background-color: var(--color-deep-navy);
+  border-radius: var(--radius-large);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.statItem:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  bottom: -24px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: var(--color-border-dark);
+}
+
+.statValue {
+  font-family: var(--font-display);
+  font-size: 48px;
+  color: var(--color-gold);
+  font-weight: 300;
+  line-height: 1;
+}
+
+.statLabel {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 400;
+  margin-top: 8px;
+}
+
+@media (max-width: 900px) {
+  .dubaiContainer {
+    flex-direction: column;
+    gap: 64px;
+  }
+}
+
+/* SECTION 6: CTA */
+.ctaSection {
+  background-color: var(--color-deep-navy);
+  padding: 96px 0;
+}
+
+.ctaContainer {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 var(--space-5);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ctaHeading {
+  font-family: var(--font-display);
+  font-size: 52px;
+  color: var(--color-white);
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+.ctaSupporting {
+  font-family: var(--font-body);
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin-top: 16px;
+}
+
+.ctaRow {
+  display: flex;
+  gap: 16px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ctaReassurance {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 24px;
+}
+
+.btnPrimary, .btnSecondary {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: var(--radius-button);
+  text-decoration: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnPrimary {
+  background: var(--color-whatsapp);
+  color: var(--color-white);
+}
+
+.btnPrimary:hover {
+  transform: translateY(-2px);
+}
+
+.btnSecondary {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  color: var(--color-white);
+}
+
+.btnSecondary:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px);
+}

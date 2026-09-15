@@ -1,0 +1,674 @@
+/* SECTION 1: INTERACTIVE LOGOTYPE */
+.logotypeSection {
+  position: relative;
+  min-height: 100svh; /* Use svh to prevent jumping when browser UI hides/shows */
+  height: auto;
+  width: 100%;
+  background-color: var(--color-abyss);
+  background-image: url('data:image/svg+xml;utf8,<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="1" fill="white" fill-opacity="0.03" /></svg>');
+  background-repeat: repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding-bottom: 80px; /* Add padding so scroll line has room */
+}
+
+.logotypeContainer {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 8vw, 108px);
+  color: var(--color-white);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  display: flex;
+}
+
+.char {
+  display: inline-block;
+  position: relative;
+  will-change: transform;
+}
+
+.tagline {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-align: center;
+  margin-top: 24px;
+  position: relative;
+}
+
+.underlineWrapper {
+  margin-top: 8px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.underline {
+  height: 2px;
+  background-color: var(--color-gold);
+  width: 140px;
+}
+
+.scrollInvite {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 48px;
+  background-color: rgba(255, 255, 255, 0.20);
+  margin-bottom: 8px;
+  transform-origin: top center;
+}
+
+.scrollLabel {
+  font-family: var(--font-body);
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.40);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* SECTION 2: CONTACT SPLIT */
+.splitSection {
+  background-color: var(--color-page);
+  padding: 80px 0;
+}
+
+.splitContainer {
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-5);
+  display: flex;
+  gap: 64px;
+}
+
+.splitLeft {
+  flex: 0 0 42%;
+}
+
+.splitRight {
+  flex: 0 0 58%;
+}
+
+.contactHeading {
+  font-family: var(--font-display);
+  font-size: 48px;
+  color: var(--color-ink);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.contactSubtext {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--color-stone);
+  line-height: 1.65;
+  margin-top: 16px;
+  max-width: 340px;
+}
+
+.methodsList {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.methodRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  text-decoration: none;
+}
+
+.methodIcon {
+  color: var(--color-gold);
+  margin-top: 2px;
+}
+
+.methodContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.methodLabel {
+  font-family: var(--font-body);
+  font-size: 11px;
+  color: var(--color-stone);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  margin-bottom: 2px;
+  text-transform: uppercase;
+}
+
+.methodDetail {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-ink);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+a.methodRow:hover .methodDetail {
+  color: var(--color-gold);
+}
+
+.waBlock {
+  margin-top: 32px;
+  background-color: var(--color-deep-navy);
+  border-radius: var(--radius-card);
+  padding: 24px 28px;
+}
+
+.waLabel {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 500;
+}
+
+.waHeading {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--color-white);
+  font-weight: 400;
+  margin-top: 6px;
+}
+
+.waBtn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background-color: var(--color-whatsapp);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 12px;
+  border-radius: var(--radius-button);
+  margin-top: 16px;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.waBtn:hover {
+  transform: translateY(-2px);
+}
+
+.socialBlock {
+  margin-top: 40px;
+}
+
+.socialLabel {
+  font-family: var(--font-body);
+  font-size: 11px;
+  color: var(--color-stone);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.socialRow {
+  display: flex;
+  gap: 20px;
+}
+
+.socialIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  color: var(--color-stone);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.socialIcon:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+@media (max-width: 900px) {
+  .splitContainer {
+    flex-direction: column;
+  }
+  .splitLeft, .splitRight {
+    flex: 1 1 100%;
+  }
+}
+
+/* CONTACT FORM */
+.formCard {
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-large);
+  padding: 40px 36px;
+  box-shadow: var(--shadow-card);
+  position: relative;
+}
+
+.preselectTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(197, 151, 58, 0.08);
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--color-gold);
+  margin-bottom: 24px;
+}
+
+.preselectDismiss {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.formRow {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.formCol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.formFull {
+  width: 100%;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.inputLabel {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--color-stone);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.inputField {
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-button);
+  padding: 12px 14px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-ink);
+  width: 100%;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  outline: none;
+}
+
+.inputField::placeholder {
+  color: rgba(107, 114, 128, 0.7);
+}
+
+.inputField:focus {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(197, 151, 58, 0.12);
+}
+
+.inputError {
+  border-color: rgba(220, 38, 38, 0.6) !important;
+}
+
+.errorMsg {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: rgb(220, 38, 38);
+  margin-top: 4px;
+}
+
+textarea.inputField {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.servicesGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.checkboxInput {
+  display: none;
+}
+
+.checkboxBox {
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid var(--color-border);
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.checkboxInput:checked + .checkboxBox {
+  border-color: var(--color-gold);
+  background-color: rgba(197, 151, 58, 0.12);
+}
+
+.checkboxText {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-ink);
+  font-weight: 500;
+}
+
+.servicesErrorGroup {
+  border: 1px solid rgba(220, 38, 38, 0.6);
+  padding: 12px;
+  border-radius: var(--radius-button);
+}
+
+.submitBtn {
+  width: 100%;
+  background-color: var(--color-abyss);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 16px;
+  border-radius: var(--radius-button);
+  margin-top: 24px;
+  transition: background-color 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 56px;
+}
+
+.submitBtn:hover:not(:disabled) {
+  background-color: var(--color-deep-navy);
+}
+
+.submitBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--color-white);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.quickReply {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.quickReplyText {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-stone);
+}
+
+.quickReplyLink {
+  color: var(--color-gold);
+  text-decoration: none;
+}
+
+.quickReplyLink:hover {
+  text-decoration: underline;
+}
+
+.successBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 0;
+}
+
+.successHeading {
+  font-family: var(--font-display);
+  font-size: 34px;
+  color: var(--color-ink);
+  font-weight: 400;
+  margin-top: 16px;
+}
+
+.successBody {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-stone);
+  line-height: 1.65;
+  margin-top: 12px;
+  max-width: 340px;
+}
+
+.ghostBtn {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-stone);
+  padding: 10px 20px;
+  border-radius: var(--radius-button);
+  font-size: 14px;
+  font-family: var(--font-body);
+  margin-top: 32px;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.ghostBtn:hover {
+  border-color: var(--color-ink);
+  color: var(--color-ink);
+}
+
+.errorBlock {
+  background-color: rgba(220, 38, 38, 0.06);
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-top: 24px;
+  text-align: center;
+}
+
+.errorBlockText {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: rgb(220, 38, 38);
+  margin-bottom: 8px;
+}
+
+.errorBlockLink {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-gold);
+  text-decoration: none;
+}
+
+.errorBlockLink:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .formRow {
+    flex-direction: column;
+  }
+}
+
+/* SECTION 3: SOCIAL STRIP */
+.stripSection {
+  background-color: var(--color-abyss);
+  padding: 64px 0;
+}
+
+.stripContainer {
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-5);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.stripCol {
+  position: relative;
+  padding: 0 40px;
+}
+
+.stripCol:first-child {
+  padding-left: 0;
+}
+
+.stripCol:last-child {
+  padding-right: 0;
+}
+
+.stripCol:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: var(--color-border-dark);
+}
+
+.stripHeading {
+  font-family: var(--font-body);
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.stripRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-border-dark);
+  text-decoration: none;
+  transition: border-color 0.2s ease;
+}
+
+.stripRow:last-child {
+  border-bottom: none;
+}
+
+.stripRow.isLink:hover {
+  border-bottom-color: rgba(197, 151, 58, 0.3);
+}
+
+.stripIcon {
+  color: var(--color-gold);
+}
+
+.stripSocialIcon {
+  color: var(--color-stone);
+  transition: color 0.2s ease;
+}
+
+.stripText {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.stripRow.isLink:hover .stripSocialIcon {
+  color: var(--color-gold);
+}
+
+.stripRow.isLink:hover .stripText {
+  color: var(--color-white);
+}
+
+.stripContactIcon {
+  color: var(--color-gold);
+}
+
+.stripContactText {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.75);
+  transition: color 0.2s ease;
+}
+
+.stripRow.isLink:hover .stripContactText {
+  color: var(--color-white);
+}
+
+.stripBody {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.7;
+}
+
+.stripNote {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.45);
+  margin-top: 24px;
+}
+
+@media (max-width: 900px) {
+  .stripContainer {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .stripCol {
+    padding: 0 !important;
+  }
+  .stripCol::after {
+    display: none;
+  }
+}

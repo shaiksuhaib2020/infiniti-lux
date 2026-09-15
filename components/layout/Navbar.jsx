@@ -39,12 +39,21 @@ export default function Navbar() {
     { label: 'Home', href: '/' },
     { 
       label: 'Travel', 
-      href: '#',
+      href: '/travel',
+      isActive: (pathname) => pathname === '/travel' || pathname.startsWith('/travel/'),
       onMouseEnter: () => setDropdownOpen(true),
       onMouseLeave: () => setDropdownOpen(false),
       mobileChildren: (closeMenu) => (
         mobileDropdownOpen && (
           <div className={styles.mobileSubMenu}>
+            <Link 
+              href="/travel" 
+              className={styles.mobileSubLink}
+              style={{ fontWeight: '600', color: 'var(--color-gold)' }}
+              onClick={() => closeMenu(false)}
+            >
+              All Travel Services
+            </Link>
             {travelLinks.map(link => (
               <Link 
                 key={link.href} 
@@ -111,6 +120,9 @@ export default function Navbar() {
           onMouseEnter={() => setDropdownOpen(true)}
           onMouseLeave={() => setDropdownOpen(false)}
         >
+          <Link href="/travel" className={styles.dropdownLink} style={{ fontWeight: '600', color: 'var(--color-gold)', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '12px', marginBottom: '8px' }}>
+            All Travel Services
+          </Link>
           {travelLinks.map(link => (
             <Link key={link.href} href={link.href} className={styles.dropdownLink}>
               {link.label}
