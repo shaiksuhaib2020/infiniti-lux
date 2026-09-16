@@ -3,6 +3,9 @@ import { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MapPin, Calendar, Users, Compass } from 'lucide-react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { format } from 'date-fns';
 import styles from '@/styles/modules/TripSearch.module.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -11,7 +14,8 @@ export default function TripSearch() {
   const containerRef = useRef(null);
   
   const [destination, setDestination] = useState('');
-  const [dates, setDates] = useState('');
+  const [dateRange, setDateRange] = useState([null, null]);
+  const [startDate, endDate] = dateRange;
   const [travellers, setTravellers] = useState('');
   const [tripType, setTripType] = useState('');
 
@@ -34,9 +38,16 @@ export default function TripSearch() {
   }, []);
 
   const handleQuoteClick = () => {
+    let dateStr = 'Not specified';
+    if (startDate && endDate) {
+      dateStr = `${format(startDate, 'MMM d, yyyy')} - ${format(endDate, 'MMM d, yyyy')}`;
+    } else if (startDate) {
+      dateStr = format(startDate, 'MMM d, yyyy');
+    }
+
     const text = `Hi Infiniti Luxe, I would like a trip quote.
 Destination: ${destination || 'Not specified'}
-Dates: ${dates || 'Not specified'}
+Dates: ${dateStr}
 Travellers: ${travellers || 'Not specified'}
 Trip Type: ${tripType || 'Not specified'}`;
     const encoded = encodeURIComponent(text);
@@ -69,11 +80,17 @@ Trip Type: ${tripType || 'Not specified'}`;
             <label>Travel Dates</label>
             <div className={styles.inputWrapper}>
               <Calendar size={18} className={styles.icon} />
-              <input 
-                type="text" 
-                placeholder="Departure &mdash; Return" 
-                value={dates}
-                onChange={e => setDates(e.target.value)}
+              <DatePicker
+                selectsRange={true}
+                startDate={startDate}
+                endDate={endDate}
+                onChange={(update) => {
+                  setDateRange(update);
+                }}
+                isClearable={true}
+                placeholderText="Departure &mdash; Return"
+                className={styles.datePickerInput}
+                dateFormat="dd MMM yyyy"
               />
             </div>
           </div>

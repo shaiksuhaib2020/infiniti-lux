@@ -1,7 +1,7 @@
 import Hero from '@/components/home/Hero';
 import TripSearch from '@/components/home/TripSearch';
 import ServiceCards from '@/components/home/ServiceCards';
-import Destinations from '@/components/home/Destinations';
+import DestinationGallery from '@/components/home/DestinationGallery';
 import VisaHighlight from '@/components/home/VisaHighlight';
 import TrustSection from '@/components/home/TrustSection';
 import FinalCTA from '@/components/home/FinalCTA';
@@ -12,7 +12,7 @@ export default function Home() {
       <Hero />
       <TripSearch />
       <ServiceCards />
-      <Destinations />
+      <DestinationGallery />
       <VisaHighlight />
       <TrustSection />
       <FinalCTA />

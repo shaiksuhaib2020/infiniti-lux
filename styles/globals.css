@@ -132,3 +132,21 @@ button {
   background: none;
   font-family: var(--font-body);
 }
+
+/* Remove link color from all body copy paragraphs site-wide */
+p a,
+p a:visited,
+p a:hover {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(197, 151, 58, 0.5);
+}
+
+/* Remove link color from all body copy paragraphs site-wide */
+p a,
+p a:visited,
+p a:hover {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(197, 151, 58, 0.5);
+}

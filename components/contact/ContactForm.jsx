@@ -42,6 +42,8 @@ export default function ContactForm() {
 
   useEffect(() => {
     const serviceParam = searchParams.get('service');
+    const destParam = searchParams.get('destination');
+    
     if (serviceParam) {
       const mapping = {
         visa: 'Visa',
@@ -58,6 +60,29 @@ export default function ContactForm() {
       if (matched) {
         setFormData(prev => ({ ...prev, services: [matched] }));
         setPreselected(`${matched} enquiry pre-selected`);
+      }
+    }
+
+    if (destParam) {
+      const destMapping = {
+        'dubai': 'Dubai',
+        'maldives': 'Maldives',
+        'switzerland': 'Switzerland',
+        'turkey': 'Turkey',
+        'france': 'France',
+        'italy': 'Italy',
+        'united-kingdom': 'United Kingdom',
+        'usa': 'USA',
+        'canada': 'Canada',
+        'japan': 'Japan',
+        'thailand': 'Thailand',
+        'bali': 'Bali',
+        'australia': 'Australia',
+        'saudi-arabia': 'Saudi Arabia'
+      };
+      const matchedDest = destMapping[destParam.toLowerCase()];
+      if (matchedDest) {
+        setFormData(prev => ({ ...prev, destination: matchedDest }));
       }
     }
   }, [searchParams]);

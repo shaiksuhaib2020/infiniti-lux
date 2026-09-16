@@ -8,8 +8,11 @@ export default function Footer() {
         <div className={styles.grid}>
           {/* Column 1 - Brand */}
           <div className={styles.column}>
-            <div className={styles.logo}>Infiniti Luxe</div>
-            <p className={styles.tagline}>Travel Beyond Boundaries.</p>
+            <img 
+              src="/assets/logo_inf.webp" 
+              alt="Infiniti Luxe Logo" 
+              className={styles.footerLogoImage} 
+            />
             <div className={styles.contactLinks}>
               <a href="tel:+971582109797">+971 58 210 9797</a>
               <a href="mailto:infinitiempire0007@gmail.com">infinitiempire0007@gmail.com</a>

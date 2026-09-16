@@ -23,16 +23,11 @@
   gap: var(--space-3);
 }
 
-.logo {
-  font-family: var(--font-display);
-  font-size: 24px;
-  color: #fff;
-}
-
-.tagline {
-  font-family: var(--font-body);
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.7);
+.footerLogoImage {
+  width: 140px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: var(--space-4);
 }
 
 .contactLinks {

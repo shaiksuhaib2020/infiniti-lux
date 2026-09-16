@@ -69,6 +69,13 @@
   flex-direction: column;
 }
 
+.heroLogo {
+  width: 140px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: var(--space-4);
+}
+
 .eyebrow {
   font-family: var(--font-body);
   font-size: 11px;

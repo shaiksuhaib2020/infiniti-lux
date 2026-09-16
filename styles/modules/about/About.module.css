@@ -5,12 +5,31 @@
   min-height: 500px;
   width: 100%;
   background-color: var(--color-abyss);
-  background-image: url('data:image/svg+xml;utf8,<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="1" fill="white" fill-opacity="0.03" /></svg>');
-  background-repeat: repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+}
+
+.bannerBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(7, 17, 28, 0.6); /* --color-abyss with opacity */
+  z-index: 2;
 }
 
 .heroContainer {
@@ -54,11 +73,15 @@
   margin-top: 20px;
 }
 
-/* SECTION 2: MANIFESTO */
+/* SECTION 2: MANIFESTO / PHOTO BANNER */
 .manifestoSection {
-  background-color: var(--color-page);
-  padding: 120px 0;
+  position: relative;
+  height: 55vh;
+  min-height: 400px;
+  width: 100%;
+  overflow: hidden;
 }
+
 
 .manifestoContainer {
   max-width: 680px;
@@ -68,12 +91,14 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 .manifestoOpener {
   font-family: var(--font-display);
-  font-size: 40px;
-  color: var(--color-ink);
+  font-size: 44px;
+  color: var(--color-white);
   font-weight: 400;
   line-height: 1.2;
   margin-bottom: 48px;
@@ -82,7 +107,7 @@
 .manifestoPara {
   font-family: var(--font-body);
   font-size: 18px;
-  color: var(--color-slate);
+  color: rgba(255, 255, 255, 0.8);
   line-height: 1.85;
   margin-bottom: 32px;
 }
@@ -94,7 +119,7 @@
 .manifestoClosing {
   font-family: var(--font-display);
   font-size: 32px;
-  color: var(--color-ink);
+  color: var(--color-white);
   font-weight: 400;
   font-style: italic;
   margin-top: 48px;
@@ -213,6 +238,17 @@
 .valueItem {
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+.valueItem:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -20px; /* half of gap */
+  width: 1px;
+  height: 100%;
+  background-color: var(--color-border);
 }
 
 .valueName {
@@ -226,9 +262,9 @@
   font-family: var(--font-body);
   font-size: 15px;
   color: var(--color-slate);
+  margin-top: 32px;
   line-height: 1.75;
   max-width: 300px;
-  margin-top: 40px; /* intentional space */
 }
 
 @media (max-width: 900px) {
@@ -437,4 +473,126 @@ a.contactRow:hover .contactText {
 .btnSecondary:hover {
   background: rgba(255, 255, 255, 0.05);
   transform: translateY(-2px);
+}
+
+/* WHAT WE DO (REBUILT GRID) */
+.whatWeDoSection {
+  background-color: var(--color-ice);
+  padding: 96px 0;
+}
+.wwdContainer {
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-5);
+}
+.wwdHeader {
+  margin-bottom: 40px;
+}
+.wwdHeading {
+  font-family: var(--font-display);
+  font-size: 44px;
+  color: var(--color-ink);
+  font-weight: 400;
+}
+.wwdSubtext {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--color-stone);
+  margin-top: 12px;
+}
+.wwdGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.wwdCard {
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 28px;
+  box-shadow: var(--shadow-card);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.wwdCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(197, 151, 58, 0.35);
+}
+.wwdIconBox {
+  width: 48px;
+  height: 48px;
+  background-color: rgba(197, 151, 58, 0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.wwdCardTitle {
+  font-family: var(--font-display);
+  font-size: 24px;
+  color: var(--color-ink);
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+.wwdCardDesc {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-stone);
+  line-height: 1.55;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.wwdCardBottom {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border);
+}
+.wwdCardCta {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-gold);
+  transition: color 0.15s ease;
+}
+.wwdCard:hover .wwdCardCta {
+  color: var(--color-ink);
+}
+@media (max-width: 1024px) {
+  .wwdGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .wwdGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* IMAGE BREAK */
+.imageBreakSection {
+  width: 100%;
+  height: 480px;
+  overflow: hidden;
+  position: relative;
+}
+.imageBreakImg {
+  width: 100%;
+  height: 130%;
+  object-fit: cover;
+  object-position: center;
+  position: absolute;
+  top: -15%;
+  left: 0;
+}
+@media (max-width: 1024px) {
+  .imageBreakSection { height: 320px; }
+}
+@media (max-width: 600px) {
+  .imageBreakSection { height: 260px; }
 }

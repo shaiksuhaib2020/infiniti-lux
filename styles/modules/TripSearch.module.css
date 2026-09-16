@@ -127,3 +127,7 @@
     margin-top: var(--space-2);
   }
 }
+
+.inputWrapper :global(.react-datepicker-wrapper) {
+  width: 100%;
+}

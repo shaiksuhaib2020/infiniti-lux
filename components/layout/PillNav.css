@@ -113,12 +113,14 @@
   (the original positions it absolute at top-left)
 */
 .pill-nav-container {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1000;
+  position: relative;
+  top: auto;
+  left: auto;
+  transform: none;
+  z-index: auto;
   width: auto;
+  pointer-events: auto;
+  justify-self: center;
 }
 
 /* Nav items container: add a very subtle blur backdrop */
