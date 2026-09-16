@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 const services = [
   { id: 1, title: 'Flights', desc: "Fly anywhere in the world. We'll find the best routes for your journey.", cta: 'Find Flights', img: '/assets/cards/flights.webp', route: '/travel/flights' },
   { id: 2, title: 'Hotels', desc: 'Stay somewhere worth remembering. Handpicked hotels for every kind of traveller.', cta: 'Find a Hotel', img: '/assets/cards/hotel.webp', route: '/travel/hotels' },
-  { id: 3, title: 'Holiday Packages', desc: 'Complete holidays, thoughtfully put together so you travel without the stress.', cta: 'Explore Holidays', img: '/assets/cards/Holiday_packages.webp', route: '/travel/holidays' },
+  { id: 3, title: 'Holiday Packages', desc: 'Complete holidays, thoughtfully put together so you travel without the stress.', cta: 'Explore Holidays', img: '/assets/cards/holiday_packages.webp', route: '/travel/holidays' },
   { id: 4, title: 'Visa Assistance', desc: 'Professional document guidance for visa applications around the world.', cta: 'Check Visa Options', img: '/assets/cards/visa_card.webp', route: '/visa-services' },
   { id: 5, title: 'Tours & Experiences', desc: 'Go beyond the surface. Curated tours and local experiences in every destination.', cta: 'Explore Experiences', img: '/assets/cards/tours_card.webp', route: '/travel/tours' },
   { id: 6, title: 'Cruises', desc: "Wake up somewhere new every day. Cruise packages across the world's finest routes.", cta: 'Explore Cruises', img: '/assets/cards/cruise_1.webp', route: '/travel/cruises' },
