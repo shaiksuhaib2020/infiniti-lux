@@ -101,7 +101,7 @@ export default function Hero() {
           playsInline 
           className={styles.heroVideo}
         >
-          <source src="/assets/video/hero_vid.webm" type="video/webm" />
+          <source src="/assets/video/Hero_vid.webm" type="video/webm" />
         </video>
         <div className={styles.overlay}></div>
       </div>
