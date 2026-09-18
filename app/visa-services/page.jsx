@@ -2,7 +2,6 @@ import VisaHero from '@/components/visa/VisaHero';
 import VisaProcess from '@/components/visa/VisaProcess';
 import WhyAssistance from '@/components/visa/WhyAssistance';
 import VisaFAQ from '@/components/visa/VisaFAQ';
-import TransparencyStatement from '@/components/visa/TransparencyStatement';
 import VisaEnquiryCTA from '@/components/visa/VisaEnquiryCTA';
 
 export const metadata = {
@@ -17,7 +16,6 @@ export default function VisaServicesPage() {
       <VisaProcess />
       <WhyAssistance />
       <VisaFAQ />
-      <TransparencyStatement />
       <VisaEnquiryCTA />
     </>
   );

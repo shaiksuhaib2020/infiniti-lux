@@ -8,6 +8,7 @@ import styles from '@/styles/modules/contact/Contact.module.css';
 export default function SocialStrip() {
   const sectionRef = useRef(null);
   const containerRef = useRef(null);
+  const mapsLink = "https://www.google.com/maps/place/Al+zarooni+building+(capital+building)/@25.2513242,55.3025704,17z";
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -42,42 +43,43 @@ export default function SocialStrip() {
         <div className={styles.stripCol}>
           <div className={styles.stripHeading}>Find us online</div>
           
-          <a href="#" className={`${styles.stripRow} ${styles.isLink}`} target="_blank" rel="noopener noreferrer">
+          <a href="https://www.instagram.com/infinitiluxetravels?stkn=YnY4b2U4YTE1OTZ1&utm_source=qr" className={`${styles.stripRow} ${styles.isLink}`} target="_blank" rel="noopener noreferrer">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={styles.stripSocialIcon}><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
             <span className={styles.stripText}>Instagram</span>
-            {/* TODO: Replace with Instagram URL when available */}
           </a>
           
-          <a href="#" className={`${styles.stripRow} ${styles.isLink}`} target="_blank" rel="noopener noreferrer">
+          <a href="https://www.facebook.com/infinitiluxetravels" className={`${styles.stripRow} ${styles.isLink}`} target="_blank" rel="noopener noreferrer">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={styles.stripSocialIcon}><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
             <span className={styles.stripText}>Facebook</span>
-            {/* TODO: Replace with Facebook URL when available */}
           </a>
           
-          <a href="#" className={`${styles.stripRow} ${styles.isLink}`} target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/infiniti-luxe-travel-tourism-099a33436" className={`${styles.stripRow} ${styles.isLink}`} target="_blank" rel="noopener noreferrer">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={styles.stripSocialIcon}><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
             <span className={styles.stripText}>LinkedIn</span>
-            {/* TODO: Replace with LinkedIn URL when available */}
           </a>
         </div>
         
         <div className={styles.stripCol}>
           <div className={styles.stripHeading}>Get in touch</div>
           
-          <a href="tel:+971582109797" className={`${styles.stripRow} ${styles.isLink}`}>
+          <div className={`${styles.stripRow} ${styles.isLink}`}>
             <Phone className={styles.stripContactIcon} size={20} />
-            <span className={styles.stripContactText}>+971 58 210 9797</span>
-          </a>
+            <span className={styles.stripContactText}>
+              <a href="tel:+971582109797" style={{ color: 'inherit', textDecoration: 'none' }}>+971 58 210 9797</a>
+              <span style={{ margin: '0 6px', opacity: 0.4 }}>|</span>
+              <a href="tel:+971541509377" style={{ color: 'inherit', textDecoration: 'none' }}>+971 54 150 9377</a>
+            </span>
+          </div>
           
           <a href="mailto:infinitiempire0007@gmail.com" className={`${styles.stripRow} ${styles.isLink}`}>
             <Mail className={styles.stripContactIcon} size={20} />
             <span className={styles.stripContactText}>infinitiempire0007@gmail.com</span>
           </a>
           
-          <div className={styles.stripRow}>
+          <a href={mapsLink} target="_blank" rel="noopener noreferrer" className={`${styles.stripRow} ${styles.isLink}`}>
             <MapPin className={styles.stripContactIcon} size={20} />
-            <span className={styles.stripContactText}>Dubai, UAE</span>
-          </div>
+            <span className={styles.stripContactText}>Al Zarooni Building, Burjuman, Dubai, UAE</span>
+          </a>
         </div>
         
         <div className={styles.stripCol}>
@@ -96,3 +98,4 @@ export default function SocialStrip() {
     </section>
   );
 }
+

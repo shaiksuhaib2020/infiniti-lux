@@ -54,7 +54,6 @@ export default function VisaProcess() {
         </div>
         
         <div className={styles.stepsRow}>
-          <div className={styles.stepConnector}></div>
           {steps.map((step, idx) => (
             <div 
               key={idx} 

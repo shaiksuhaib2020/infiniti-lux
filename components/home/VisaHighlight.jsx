@@ -7,7 +7,7 @@ import styles from '@/styles/modules/VisaHighlight.module.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const tags = ['Schengen', 'UK', 'USA', 'Canada', 'Australia', 'Japan', 'Turkey', 'UAE', 'Saudi Arabia'];
+const tags = ['Schengen', 'UK', 'USA', 'Canada', 'Australia', 'Japan', 'Turkey', 'UAE', 'Saudi Arabia', 'Other'];
 
 export default function VisaHighlight() {
   const sectionRef = useRef(null);
@@ -70,7 +70,14 @@ export default function VisaHighlight() {
 
           <div className={styles.tagsContainer}>
             {tags.map(tag => (
-              <span key={tag} className={styles.tag}>{tag}</span>
+              <Link
+                key={tag}
+                href={tag === 'Other' ? '/contact?service=visa#contact-split' : `/visa-services#visa-destinations`}
+                className={styles.tag}
+                style={{ textDecoration: 'none' }}
+              >
+                {tag}
+              </Link>
             ))}
           </div>
 

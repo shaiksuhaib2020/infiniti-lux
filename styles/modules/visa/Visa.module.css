@@ -134,7 +134,20 @@
 /* SECTION 2: PROCESS */
 .processSection {
   background: var(--color-white);
-  padding: var(--section-padding-y) 0;
+  position: relative;
+  z-index: 1;
+  padding: 96px 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.processSection p,
+.processSection em,
+.processSection i {
+  color: var(--color-stone);
+}
+
+.processSection a {
+  color: inherit;
 }
 
 .processContainer {
@@ -163,30 +176,31 @@
 }
 
 .stepsRow {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
   position: relative;
-  gap: 24px;
 }
 
 .stepBox {
-  flex: 1;
   position: relative;
-  padding-top: 20px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border);
 }
 
 .stepNumber {
   position: absolute;
-  top: 0;
+  top: -20px;
   left: -8px;
   font-family: var(--font-display);
-  font-size: 64px;
-  color: var(--color-gold);
-  opacity: 0.18;
+  font-size: 80px;
   font-weight: 300;
-  z-index: 1;
+  color: var(--color-gold);
+  opacity: 0.12;
   line-height: 1;
+  pointer-events: none;
+  z-index: 0;
+  user-select: none;
 }
 
 .stepTitle {
@@ -195,7 +209,7 @@
   font-weight: 600;
   color: var(--color-ink);
   position: relative;
-  z-index: 2;
+  z-index: 1;
   margin-bottom: 8px;
 }
 
@@ -206,17 +220,7 @@
   line-height: 1.65;
   max-width: 220px;
   position: relative;
-  z-index: 2;
-}
-
-.stepConnector {
-  position: absolute;
-  top: 32px;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background-color: var(--color-border);
-  z-index: 0;
+  z-index: 1;
 }
 
 .processNote {
@@ -231,13 +235,12 @@
 
 @media (max-width: 900px) {
   .stepsRow {
-    flex-direction: column;
-    gap: 40px;
-  }
-  .stepConnector {
-    display: none;
-  }
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  position: relative;
 }
+  }
 
 /* SECTION 3: DESTINATIONS */
 .destSection {

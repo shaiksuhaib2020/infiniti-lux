@@ -14,6 +14,17 @@ export default function ContactSplit() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    if (typeof window !== 'undefined' && window.location.hash) {
+      const hash = window.location.hash.substring(1);
+      if (['contact-split', 'contact-form', 'plan-your-journey'].includes(hash)) {
+        setTimeout(() => {
+          const el = document.getElementById('contact-split');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 200);
+      }
+    }
+
     if (prefersReducedMotion) return;
 
     const tl = gsap.timeline({

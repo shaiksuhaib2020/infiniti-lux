@@ -129,7 +129,7 @@ export default function Hero() {
 
           <div className={styles.buttonContainer}>
             <div className={styles.btnRow}>
-              <Link href="/contact" className={styles.primaryBtn}>
+              <Link href="/contact#contact-split" className={styles.primaryBtn}>
                 Plan My Trip
               </Link>
               <Link href="/travel/holidays" className={styles.secondaryBtn}>
@@ -137,7 +137,7 @@ export default function Hero() {
               </Link>
             </div>
             
-            <Link href="/contact" className={styles.textLink}>
+            <Link href="/contact#contact-split" className={styles.textLink}>
               Speak to a Travel Expert &rarr;
             </Link>
           </div>

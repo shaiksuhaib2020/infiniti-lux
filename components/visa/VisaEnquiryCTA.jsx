@@ -49,7 +49,7 @@ export default function VisaEnquiryCTA() {
           <a href={waLink} target="_blank" rel="noopener noreferrer" className={styles.btnPrimary}>
             Start on WhatsApp
           </a>
-          <Link href="/contact?service=visa" className={styles.btnSecondary}>
+          <Link href="/contact?service=visa#contact-split" className={styles.btnSecondary}>
             Send an Enquiry
           </Link>
         </div>

@@ -95,7 +95,7 @@ export default function Navbar() {
     },
     { label: 'Visa Services', href: '/visa-services' },
     { label: 'About', href: '/about' },
-    { label: 'Contact', href: '/contact' },
+    { label: 'Contact', href: '/contact#contact-split' },
   ];
 
   return (

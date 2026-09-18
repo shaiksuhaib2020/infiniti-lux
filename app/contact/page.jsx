@@ -1,4 +1,3 @@
-import InteractiveLogotype from '@/components/contact/InteractiveLogotype';
 import ContactSplit from '@/components/contact/ContactSplit';
 import SocialStrip from '@/components/contact/SocialStrip';
 
@@ -10,9 +9,9 @@ export const metadata = {
 export default function ContactPage() {
   return (
     <>
-      <InteractiveLogotype />
       <ContactSplit />
       <SocialStrip />
     </>
   );
 }
+

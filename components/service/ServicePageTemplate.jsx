@@ -160,7 +160,7 @@ export default function ServicePageTemplate({ config }) {
             <a href={waLinkHero} target="_blank" rel="noopener noreferrer" className={styles.btnPrimary}>
               Enquire on WhatsApp
             </a>
-            <Link href={`/contact?service=${serviceQueryParam}`} className={styles.btnSecondary}>
+            <Link href={`/contact?service=${serviceQueryParam}#contact-split`} className={styles.btnSecondary}>
               Contact Us
             </Link>
           </div>
@@ -212,7 +212,7 @@ export default function ServicePageTemplate({ config }) {
             {popularOptions.map((opt, i) => (
               <Link 
                 key={i} 
-                href={`/contact?service=${serviceQueryParam}&destination=${encodeURIComponent(opt.name)}`} 
+                href={`/contact?service=${serviceQueryParam}&destination=${encodeURIComponent(opt.name)}#contact-split`} 
                 className={styles.card}
               >
                 <div className={styles.cardImageWrapper}>
@@ -242,7 +242,7 @@ export default function ServicePageTemplate({ config }) {
             <a href={waLinkFooter} target="_blank" rel="noopener noreferrer" className={styles.btnPrimary}>
               Plan on WhatsApp
             </a>
-            <Link href={`/contact?service=${serviceQueryParam}`} className={styles.btnSecondary}>
+            <Link href={`/contact?service=${serviceQueryParam}#contact-split`} className={styles.btnSecondary}>
               Send an Enquiry
             </Link>
           </div>

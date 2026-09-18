@@ -41,7 +41,7 @@ export default function FinalCTA() {
         </p>
         
         <div className={styles.btnGroup}>
-          <Link href="/contact" className={styles.primaryBtn}>
+          <Link href="/contact#contact-split" className={styles.primaryBtn}>
             Plan My Trip
           </Link>
           <a 

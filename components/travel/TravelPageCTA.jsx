@@ -20,7 +20,7 @@ export default function TravelPageCTA() {
           >
             Chat on WhatsApp
           </a>
-          <Link href="/contact" className={styles.secondaryBtn}>
+          <Link href="/contact#contact-split" className={styles.secondaryBtn}>
             Send an enquiry
           </Link>
         </div>

@@ -8,20 +8,20 @@ import styles from '@/styles/modules/CircularGallery.module.css';
 function GalleryFallback() {
   const router = useRouter();
   const destinations = [
-    { name: 'Dubai', route: '/contact?destination=dubai' },
-    { name: 'Maldives', route: '/contact?destination=maldives' },
-    { name: 'Switzerland', route: '/contact?destination=switzerland' },
-    { name: 'Turkey', route: '/contact?destination=turkey' },
-    { name: 'France', route: '/contact?destination=france' },
-    { name: 'Italy', route: '/contact?destination=italy' },
-    { name: 'United Kingdom', route: '/contact?destination=united-kingdom' },
-    { name: 'USA', route: '/contact?destination=usa' },
-    { name: 'Canada', route: '/contact?destination=canada' },
-    { name: 'Japan', route: '/contact?destination=japan' },
-    { name: 'Thailand', route: '/contact?destination=thailand' },
-    { name: 'Bali', route: '/contact?destination=bali' },
-    { name: 'Australia', route: '/contact?destination=australia' },
-    { name: 'Saudi Arabia', route: '/contact?destination=saudi-arabia' }
+    { name: 'Dubai', route: '/contact?destination=dubai#contact-split' },
+    { name: 'Maldives', route: '/contact?destination=maldives#contact-split' },
+    { name: 'Switzerland', route: '/contact?destination=switzerland#contact-split' },
+    { name: 'Turkey', route: '/contact?destination=turkey#contact-split' },
+    { name: 'France', route: '/contact?destination=france#contact-split' },
+    { name: 'Italy', route: '/contact?destination=italy#contact-split' },
+    { name: 'United Kingdom', route: '/contact?destination=united-kingdom#contact-split' },
+    { name: 'USA', route: '/contact?destination=usa#contact-split' },
+    { name: 'Canada', route: '/contact?destination=canada#contact-split' },
+    { name: 'Japan', route: '/contact?destination=japan#contact-split' },
+    { name: 'Thailand', route: '/contact?destination=thailand#contact-split' },
+    { name: 'Bali', route: '/contact?destination=bali#contact-split' },
+    { name: 'Australia', route: '/contact?destination=australia#contact-split' },
+    { name: 'Saudi Arabia', route: '/contact?destination=saudi-arabia#contact-split' }
   ];
 
   return (
@@ -50,20 +50,20 @@ const CircularGallery = dynamic(
 );
 
 const destinations = [
-  { text: 'Dubai',          image: '/assets/destinations/Dubai.webp',         route: '/contact?destination=dubai' },
-  { text: 'Maldives',       image: '/assets/destinations/Maldives.webp',       route: '/contact?destination=maldives' },
-  { text: 'Switzerland',    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80', route: '/contact?destination=switzerland' },
-  { text: 'Turkey',         image: '/assets/destinations/Turkey.webp',         route: '/contact?destination=turkey' },
-  { text: 'France',         image: '/assets/destinations/France.webp',         route: '/contact?destination=france' },
-  { text: 'Italy',          image: '/assets/destinations/Italy.webp',          route: '/contact?destination=italy' },
-  { text: 'United Kingdom', image: '/assets/destinations/United_Kingdom.webp', route: '/contact?destination=united-kingdom' },
-  { text: 'USA',            image: '/assets/destinations/USA.webp',            route: '/contact?destination=usa' },
-  { text: 'Canada',         image: '/assets/destinations/Canada.webp',         route: '/contact?destination=canada' },
-  { text: 'Japan',          image: '/assets/destinations/Japan.webp',          route: '/contact?destination=japan' },
-  { text: 'Thailand',       image: '/assets/destinations/Thailand.webp',       route: '/contact?destination=thailand' },
-  { text: 'Bali',           image: '/assets/destinations/Bali.webp',           route: '/contact?destination=bali' },
-  { text: 'Australia',      image: '/assets/destinations/Austrilia.webp',      route: '/contact?destination=australia' },
-  { text: 'Saudi Arabia',   image: '/assets/destinations/saudi.webp',          route: '/contact?destination=saudi-arabia' },
+  { text: 'Dubai',          image: '/assets/destinations/Dubai.webp',         route: '/contact?destination=dubai#contact-split' },
+  { text: 'Maldives',       image: '/assets/destinations/Maldives.webp',       route: '/contact?destination=maldives#contact-split' },
+  { text: 'Switzerland',    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80', route: '/contact?destination=switzerland#contact-split' },
+  { text: 'Turkey',         image: '/assets/destinations/Turkey.webp',         route: '/contact?destination=turkey#contact-split' },
+  { text: 'France',         image: '/assets/destinations/France.webp',         route: '/contact?destination=france#contact-split' },
+  { text: 'Italy',          image: '/assets/destinations/Italy.webp',          route: '/contact?destination=italy#contact-split' },
+  { text: 'United Kingdom', image: '/assets/destinations/United_Kingdom.webp', route: '/contact?destination=united-kingdom#contact-split' },
+  { text: 'USA',            image: '/assets/destinations/USA.webp',            route: '/contact?destination=usa#contact-split' },
+  { text: 'Canada',         image: '/assets/destinations/Canada.webp',         route: '/contact?destination=canada#contact-split' },
+  { text: 'Japan',          image: '/assets/destinations/Japan.webp',          route: '/contact?destination=japan#contact-split' },
+  { text: 'Thailand',       image: '/assets/destinations/Thailand.webp',       route: '/contact?destination=thailand#contact-split' },
+  { text: 'Bali',           image: '/assets/destinations/Bali.webp',           route: '/contact?destination=bali#contact-split' },
+  { text: 'Australia',      image: '/assets/destinations/Austrilia.webp',      route: '/contact?destination=australia#contact-split' },
+  { text: 'Saudi Arabia',   image: '/assets/destinations/saudi.webp',          route: '/contact?destination=saudi-arabia#contact-split' },
 ];
 
 export default function DestinationGallery() {

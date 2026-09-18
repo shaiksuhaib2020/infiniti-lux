@@ -14,7 +14,7 @@ export default function WhatWeDo() {
   ];
 
   return (
-    <section className={styles.whatWeDoSection}>
+    <section id="about-content" className={styles.whatWeDoSection}>
       <div className={styles.wwdContainer}>
         <div className={styles.wwdHeader}>
           <h2 className={styles.wwdHeading}>What We Offer</h2>

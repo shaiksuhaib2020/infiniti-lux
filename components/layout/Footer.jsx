@@ -15,6 +15,7 @@ export default function Footer() {
             />
             <div className={styles.contactLinks}>
               <a href="tel:+971582109797">+971 58 210 9797</a>
+              <a href="tel:+971541509377">+971 54 150 9377</a>
               <a href="mailto:infinitiempire0007@gmail.com">infinitiempire0007@gmail.com</a>
             </div>
           </div>
@@ -36,7 +37,7 @@ export default function Footer() {
             <h4 className={styles.heading}>Company</h4>
             <Link href="/about" className={styles.link}>About Us</Link>
             <Link href="/visa-services" className={styles.link}>Visa Services</Link>
-            <Link href="/contact" className={styles.link}>Contact</Link>
+            <Link href="/contact#contact-split" className={styles.link}>Contact</Link>
           </div>
 
           {/* Column 4 - Contact */}
@@ -44,7 +45,7 @@ export default function Footer() {
             <h4 className={styles.heading}>Get in Touch</h4>
             <a href="https://wa.me/971582109797" target="_blank" rel="noopener noreferrer" className={styles.link}>WhatsApp: +971 58 210 9797</a>
             <a href="mailto:infinitiempire0007@gmail.com" className={styles.link}>infinitiempire0007@gmail.com</a>
-            <span className={styles.link}>Dubai, UAE</span>
+            <a href="https://www.google.com/maps/place/Al+zarooni+building+(capital+building)/@25.2513242,55.3025704,17z" target="_blank" rel="noopener noreferrer" className={styles.link}>Al Zarooni Building, Burjuman, Dubai, UAE</a>
             <a 
               href="https://wa.me/971582109797?text=Hi%20Infiniti%20Luxe%2C%20I%20would%20like%20help%20planning%20my%20trip."
               target="_blank"

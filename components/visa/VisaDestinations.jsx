@@ -83,7 +83,7 @@ export default function VisaDestinations() {
         
         <div className={styles.destNote}>
           Don&apos;t see your destination? We assist with visa applications beyond those listed above.
-          <Link href="/contact?service=visa" className={styles.destNoteLink}>Get in touch &rarr;</Link>
+          <Link href="/contact?service=visa#contact-split" className={styles.destNoteLink}>Get in touch &rarr;</Link>
         </div>
       </div>
     </section>

@@ -61,7 +61,7 @@ export default function VisaHero() {
             <a href={waLink} target="_blank" rel="noopener noreferrer" className={styles.btnPrimary}>
               Check Visa Requirements
             </a>
-            <Link href="/contact?service=visa" className={styles.btnSecondary}>
+            <Link href="/contact?service=visa#contact-split" className={styles.btnSecondary}>
               Send an Enquiry
             </Link>
           </div>

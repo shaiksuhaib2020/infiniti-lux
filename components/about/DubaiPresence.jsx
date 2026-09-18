@@ -21,18 +21,22 @@ export default function DubaiPresence() {
           </p>
 
           <div className={styles.contactList}>
-            <a href="tel:+971582109797" className={styles.contactRow}>
+            <div className={styles.contactRow}>
               <Phone className={styles.contactIcon} size={18} />
-              <span className={styles.contactText}>+971 58 210 9797</span>
-            </a>
+              <span className={styles.contactText}>
+                <a href="tel:+971582109797" style={{ color: 'inherit', textDecoration: 'none' }}>+971 58 210 9797</a>
+                <span style={{ margin: '0 6px', opacity: 0.4 }}>|</span>
+                <a href="tel:+971541509377" style={{ color: 'inherit', textDecoration: 'none' }}>+971 54 150 9377</a>
+              </span>
+            </div>
             <a href="mailto:infinitiempire0007@gmail.com" className={styles.contactRow}>
               <Mail className={styles.contactIcon} size={18} />
               <span className={styles.contactText}>infinitiempire0007@gmail.com</span>
             </a>
-            <div className={styles.contactRow}>
+            <a href="https://www.google.com/maps/place/Al+zarooni+building+(capital+building)/@25.2513242,55.3025704,17z" target="_blank" rel="noopener noreferrer" className={styles.contactRow}>
               <MapPin className={styles.contactIcon} size={18} />
-              <span className={styles.contactText}>Dubai, UAE</span>
-            </div>
+              <span className={styles.contactText}>Al Zarooni Building, Burjuman, Dubai, UAE</span>
+            </a>
           </div>
         </div>
 

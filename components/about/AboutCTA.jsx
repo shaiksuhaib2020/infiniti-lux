@@ -12,14 +12,9 @@ export default function AboutCTA() {
         </p>
         
         <div className={styles.ctaRow}>
-          <a 
-            href="https://wa.me/971582109797?text=Hi%20Infiniti%20Luxe%2C%20I%20would%20like%20help%20planning%20my%20trip."
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.btnPrimary}
-          >
-            Start on WhatsApp
-          </a>
+          <Link href="/contact#contact-split" className={styles.btnPrimary}>
+            Talk to a Travel Agent
+          </Link>
           <Link href="/travel" className={styles.btnSecondary}>
             View Our Services
           </Link>

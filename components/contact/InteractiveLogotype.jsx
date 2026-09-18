@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import styles from '@/styles/modules/contact/Contact.module.css';
 
-export default function InteractiveLogotype() {
+export default function InteractiveLogotype({ targetId = 'contact-split', scrollLabel = 'Get in touch' }) {
   const containerRef = useRef(null);
   const wordmarkRef = useRef(null);
   const charRefs = useRef([]);
@@ -68,8 +68,6 @@ export default function InteractiveLogotype() {
   const handleMouseMove = (e) => {
     if (isTouch || motionReduced) return;
     
-    // throttle using requestAnimationFrame inside the mouse event isn't strictly necessary if it's lightweight, 
-    // but let's do a simple calculation.
     requestAnimationFrame(() => {
       if (!containerRef.current) return;
       
@@ -111,7 +109,7 @@ export default function InteractiveLogotype() {
   };
 
   const scrollToNext = () => {
-    const nextSection = document.getElementById('contact-split');
+    const nextSection = document.getElementById(targetId);
     if (nextSection) {
       nextSection.scrollIntoView({ behavior: 'smooth' });
     }
@@ -144,8 +142,9 @@ export default function InteractiveLogotype() {
       
       <div ref={scrollInviteRef} className={styles.scrollInvite} onClick={scrollToNext}>
         <div ref={scrollLineRef} className={styles.scrollLine}></div>
-        <div className={styles.scrollLabel}>Get in touch</div>
+        <div className={styles.scrollLabel}>{scrollLabel}</div>
       </div>
     </section>
   );
 }
+
