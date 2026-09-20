@@ -8,6 +8,9 @@ import LenisProvider from '@/components/layout/LenisProvider';
 export const metadata = {
   title: 'Infiniti Luxe | Travel Beyond Boundaries',
   description: 'Explore the world with confidence. Flights, holidays, tours, visas, hotels, and corporate travel.',
+  icons: {
+    icon: '/favicon.webp',
+  },
 };
 
 export default function RootLayout({ children }) {
