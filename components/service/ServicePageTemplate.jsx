@@ -217,9 +217,10 @@ export default function ServicePageTemplate({ config }) {
               >
                 <div className={styles.cardImageWrapper}>
                   <img 
-                    src={`https://source.unsplash.com/featured/400x300/?${opt.imageQuery},travel`} 
+                    src={opt.image || `https://source.unsplash.com/featured/400x300/?${opt.imageQuery},travel`} 
                     alt={opt.name} 
                     className={styles.cardImage} 
+                    loading="lazy" 
                   />
                 </div>
                 <div className={styles.cardBody}>
