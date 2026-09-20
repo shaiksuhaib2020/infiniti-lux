@@ -132,8 +132,8 @@ export default function Hero() {
               <Link href="/contact#contact-split" className={styles.primaryBtn}>
                 Plan My Trip
               </Link>
-              <Link href="/travel/holidays" className={styles.secondaryBtn}>
-                Explore Holidays
+              <Link href="#quick-quote" className={styles.secondaryBtn}>
+                Get Quote
               </Link>
             </div>
             

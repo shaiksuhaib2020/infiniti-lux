@@ -55,7 +55,7 @@ Trip Type: ${tripType || 'Not specified'}`;
   };
 
   return (
-    <section className={styles.section}>
+    <section id="quick-quote" className={styles.section}>
       <div className={styles.header}>
         <h2 className={styles.heading}>Where do you want to go?</h2>
         <p className={styles.subtext}>Tell us your destination and we&apos;ll take care of the rest.</p>
