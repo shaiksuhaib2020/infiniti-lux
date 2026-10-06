@@ -28,7 +28,8 @@ export default function ContactForm() {
     from_whatsapp: '',
     from_email: '',
     destination: '',
-    travel_dates: '',
+    departure_date: '',
+    return_date: '',
     travellers: '',
     services: [],
     message: ''
@@ -149,8 +150,12 @@ export default function ContactForm() {
 
   const constructWaLink = () => {
     let msg = `Hi Infiniti Luxe, I would like help planning my trip.`;
-    if (formData.from_name) msg += `\nName: ${formData.from_name}`;
-    if (formData.services.length > 0) msg += `\nServices: ${formData.services.join(', ')}`;
+    if (formData.from_name) msg += `
+Name: ${formData.from_name}`;
+    if (formData.departure_date || formData.return_date) msg += `
+Dates: ${formData.departure_date} to ${formData.return_date}`;
+    if (formData.services.length > 0) msg += `
+Services: ${formData.services.join(', ')}`;
     return `https://wa.me/971582109797?text=${encodeURIComponent(msg)}`;
   };
 
@@ -165,7 +170,8 @@ export default function ContactForm() {
           </p>
           <button className={styles.ghostBtn} onClick={() => {
             setState('idle');
-            setFormData({ from_name: '', from_whatsapp: '', from_email: '', destination: '', travel_dates: '', travellers: '', services: [], message: '' });
+            setFormData({ from_name: '', from_whatsapp: '', from_email: '', destination: '', departure_date: '',
+    return_date: '', travellers: '', services: [], message: '' });
           }}>
             Send another enquiry
           </button>
@@ -187,6 +193,7 @@ export default function ContactForm() {
       
       <form ref={formRef} onSubmit={handleSubmit} style={{ opacity: state === 'loading' ? 0.7 : 1 }}>
         <input type="hidden" name="services" value={formData.services.join(', ')} />
+        <input type="hidden" name="travel_dates" value={`${formData.departure_date} - ${formData.return_date}`} />
         
         <div className={styles.formRow}>
           <div className={styles.formCol}>
@@ -249,17 +256,35 @@ export default function ContactForm() {
         </div>
 
         <div className={styles.formRow}>
-          <div className={styles.formCol}>
+                    <div className={styles.formCol}>
             <label className={styles.inputLabel}>Travel Dates</label>
-            <input 
-              type="text" 
-              name="travel_dates"
-              className={styles.inputField}
-              placeholder="Approximate dates"
-              value={formData.travel_dates}
-              onChange={handleInputChange}
-              disabled={state === 'loading'}
-            />
+            <div className={styles.dateRangeWrapper}>
+              <div className={styles.dateField}>
+                <label htmlFor="departure_date">Departure</label>
+                <input
+                  type="date"
+                  id="departure_date"
+                  name="departure_date"
+                  min={new Date().toISOString().split('T')[0]}
+                  value={formData.departure_date}
+                  onChange={handleInputChange}
+                  disabled={state === 'loading'}
+                />
+              </div>
+              <span className={styles.dateSeparator}>&mdash;</span>
+              <div className={styles.dateField}>
+                <label htmlFor="return_date">Return</label>
+                <input
+                  type="date"
+                  id="return_date"
+                  name="return_date"
+                  min={formData.departure_date || new Date().toISOString().split('T')[0]}
+                  value={formData.return_date}
+                  onChange={handleInputChange}
+                  disabled={state === 'loading'}
+                />
+              </div>
+            </div>
           </div>
           <div className={styles.formCol}>
             <label className={styles.inputLabel}>Number of Travellers</label>

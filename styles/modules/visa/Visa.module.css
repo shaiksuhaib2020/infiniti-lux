@@ -134,20 +134,9 @@
 /* SECTION 2: PROCESS */
 .processSection {
   background: var(--color-white);
-  position: relative;
-  z-index: 1;
   padding: 96px 0;
-  border-top: 1px solid var(--color-border);
-}
-
-.processSection p,
-.processSection em,
-.processSection i {
-  color: var(--color-stone);
-}
-
-.processSection a {
-  color: inherit;
+  position: relative;
+  z-index: 2; /* sits above hero */
 }
 
 .processContainer {
@@ -157,13 +146,12 @@
 }
 
 .processHeader {
-  margin-bottom: 48px;
-  max-width: 600px;
+  margin-bottom: 64px;
 }
 
 .processHeading {
   font-family: var(--font-display);
-  font-size: 48px;
+  font-size: 44px;
   color: var(--color-ink);
   font-weight: 400;
   margin-bottom: 12px;
@@ -175,42 +163,83 @@
   color: var(--color-stone);
 }
 
+/* Rebuilt Grid Layout */
 .stepsRow {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
-  position: relative;
+  gap: 0; 
 }
 
-.stepBox {
-  position: relative;
+@media (max-width: 900px) {
+  .stepsRow {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .stepsRow {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+.stepItem {
+  padding: 0 32px 0 0;           /* right padding creates column breathing room */
+  border-top: 2px solid var(--color-border);
   padding-top: 24px;
-  border-top: 1px solid var(--color-border);
+  position: static;              /* never relative/absolute on the item itself */
 }
 
-.stepNumber {
-  position: absolute;
-  top: -20px;
-  left: -8px;
-  font-family: var(--font-display);
-  font-size: 80px;
-  font-weight: 300;
+.stepItem:last-child {
+  padding-right: 0;
+}
+
+.stepItem:first-child {
+  border-top-color: var(--color-gold);
+}
+
+/* Mobile: use left border as the vertical connector instead */
+@media (max-width: 560px) {
+  .stepItem {
+    border-top: none;
+    border-left: 2px solid var(--color-border);
+    padding: 0 0 40px 24px;
+  }
+  
+  .stepItem:first-child {
+    border-top-color: transparent;
+    border-left-color: var(--color-gold);
+  }
+
+  .stepItem:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.stepBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(197, 151, 58, 0.12);   /* gold tint */
+  border: 1.5px solid var(--color-gold);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
   color: var(--color-gold);
-  opacity: 0.12;
-  line-height: 1;
-  pointer-events: none;
-  z-index: 0;
-  user-select: none;
+  margin-bottom: 20px;
+  flex-shrink: 0;
 }
 
 .stepTitle {
   font-family: var(--font-body);
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
   color: var(--color-ink);
-  position: relative;
-  z-index: 1;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .stepDesc {
@@ -218,9 +247,6 @@
   font-size: 14px;
   color: var(--color-stone);
   line-height: 1.65;
-  max-width: 220px;
-  position: relative;
-  z-index: 1;
 }
 
 .processNote {
@@ -233,14 +259,6 @@
   width: 100%;
 }
 
-@media (max-width: 900px) {
-  .stepsRow {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
-  position: relative;
-}
-  }
 
 /* SECTION 3: DESTINATIONS */
 .destSection {

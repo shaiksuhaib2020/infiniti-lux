@@ -138,8 +138,7 @@ export default function Navbar() {
             </a>
           </div>
         }
-      />
-
+      >
       {/* Desktop Travel Dropdown */}
       {dropdownOpen && (
         <div
@@ -157,6 +156,9 @@ export default function Navbar() {
           ))}
         </div>
       )}
+      </PillNav>
+
+
 
       {/* WhatsApp Button as sibling */}
       <a

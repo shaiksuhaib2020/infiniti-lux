@@ -13,11 +13,9 @@ export default function VisaProcess() {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
-    // Steps reveal sequentially left to right, 0.15s stagger.
-    // The large background numerals fade in slightly before the text content.
     stepsRef.current.forEach((stepEl, i) => {
       if (!stepEl) return;
-      const numEl = stepEl.querySelector(`.${styles.stepNumber}`);
+      const badgeEl = stepEl.querySelector(`.${styles.stepBadge}`);
       const titleEl = stepEl.querySelector(`.${styles.stepTitle}`);
       const descEl = stepEl.querySelector(`.${styles.stepDesc}`);
       
@@ -29,7 +27,7 @@ export default function VisaProcess() {
         delay: i * 0.15
       });
 
-      tl.fromTo(numEl, { opacity: 0, scale: 0.9 }, { opacity: 0.18, scale: 1, duration: 0.6, ease: 'power2.out' })
+      tl.fromTo(badgeEl, { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'power2.out' })
         .fromTo([titleEl, descEl], { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', stagger: 0.1 }, '-=0.4');
     });
 
@@ -39,10 +37,10 @@ export default function VisaProcess() {
   }, []);
 
   const steps = [
-    { num: "1", title: "Get in touch", desc: "Tell us your destination, nationality and travel dates. We'll let you know what's required for your specific situation." },
-    { num: "2", title: "Document preparation", desc: "We provide a full checklist of required documents and review everything before submission to reduce the risk of avoidable errors." },
-    { num: "3", title: "Application handled", desc: "We prepare and organise your application. Where direct submission is available, we handle it on your behalf." },
-    { num: "4", title: "Stay informed", desc: "We keep you updated throughout the process and notify you as soon as a decision is received." },
+    { num: "01", title: "Get in touch", desc: "Tell us your destination, nationality and travel dates. We'll let you know what's required for your specific situation." },
+    { num: "02", title: "Document preparation", desc: "We provide a full checklist of required documents and review everything before submission to reduce the risk of avoidable errors." },
+    { num: "03", title: "Application handled", desc: "We prepare and organise your application. Where direct submission is available, we handle it on your behalf." },
+    { num: "04", title: "Stay informed", desc: "We keep you updated throughout the process and notify you as soon as a decision is received." },
   ];
 
   return (
@@ -57,10 +55,10 @@ export default function VisaProcess() {
           {steps.map((step, idx) => (
             <div 
               key={idx} 
-              className={styles.stepBox} 
+              className={styles.stepItem} 
               ref={(el) => { stepsRef.current[idx] = el; }}
             >
-              <div className={styles.stepNumber}>{step.num}</div>
+              <div className={styles.stepBadge}>{step.num}</div>
               <div className={styles.stepTitle}>{step.title}</div>
               <div className={styles.stepDesc}>{step.desc}</div>
             </div>

@@ -16,6 +16,7 @@ export default function PillNav({
   initialLoadAnimation = true,
   onMobileMenuClick, // Custom handler for Travel dropdown on mobile
   mobileFooter, // Add this prop
+  children,
 }) {
   const pathname = usePathname();
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -120,6 +121,7 @@ export default function PillNav({
         >
           {isMobileOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
+        {children}
       </motion.div>
 
       {/* Mobile Popover */}
