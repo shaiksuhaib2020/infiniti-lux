@@ -12,10 +12,10 @@ import styles from '@/styles/modules/contact/Contact.module.css';
 // Service: https://www.emailjs.com
 // Target email: infinitiempire0007@gmail.com
 // ─────────────────────────────────────────────
-const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';   // TODO
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';  // TODO
-const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';    // TODO
-const EMAILJS_ENABLED     = false;  // Set to true once credentials are added
+const EMAILJS_SERVICE_ID  = 'service_sgico8i';
+const EMAILJS_TEMPLATE_ID = 'template_uumtldq';
+const EMAILJS_PUBLIC_KEY  = 'v6TWSjYUjiW5_pfSw';
+const EMAILJS_ENABLED     = true;
 
 export default function ContactForm() {
   const formRef = useRef(null);
@@ -140,7 +140,9 @@ export default function ContactForm() {
       // We pass the form ref to EmailJS. It will read the input names.
       // Since services is an array in state but we need a string for EmailJS,
       // we will use a hidden input with the joined string.
-      await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formRef.current, EMAILJS_PUBLIC_KEY);
+      await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formRef.current, {
+        publicKey: EMAILJS_PUBLIC_KEY,
+      });
       setState('success');
     } catch (err) {
       console.error(err);
